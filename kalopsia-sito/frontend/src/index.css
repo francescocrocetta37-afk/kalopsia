@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 240 6% 4%;
+        --foreground: 0 0% 100%;
+        --card: 240 5% 9%;
+        --card-foreground: 0 0% 100%;
+        --popover: 240 6% 4%;
+        --popover-foreground: 0 0% 100%;
+        --primary: 328 100% 50%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 240 5% 14%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 240 5% 14%;
+        --muted-foreground: 240 5% 65%;
+        --accent: 328 100% 50%;
+        --accent-foreground: 0 0% 100%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 240 5% 16%;
+        --input: 240 5% 16%;
+        --ring: 328 100% 50%;
+        --radius: 1rem;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #09090b;
+    color: #ffffff;
+    font-family: "Outfit", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+}
+
+::selection {
+    background: #ff007f;
+    color: #ffffff;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+    background: #26262e;
+    border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #ff007f;
+}
+
+:focus-visible {
+    outline: 2px solid #ff007f;
+    outline-offset: 3px;
+}
+
+.grain {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    pointer-events: none;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.marquee-track {
+    animation: marquee-scroll 48s linear infinite;
+}
+.marquee:hover .marquee-track {
+    animation-play-state: paused;
+}
+@keyframes marquee-scroll {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    .marquee-track {
+        animation: none;
+    }
+    .animate-ping {
+        animation: none;
+    }
+}
